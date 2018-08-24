@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[标题]]></title>
-    <url>%2F2018%2F08%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[简介 1.一级标题1.1二级标题1代码 More info: Writing]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[ToLLy]]></title>
     <url>%2F2018%2F08%2F23%2Ftest%2F</url>
     <content type="text"><![CDATA[Just for testingHello world！]]></content>
