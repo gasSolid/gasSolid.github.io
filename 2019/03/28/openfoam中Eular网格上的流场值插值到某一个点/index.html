@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="openfoam中Eular网格上的流场值插值到某一个点在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数源文件可点击总共有六种插值方法cell, cellPoint, cellPointFace, cellPointWallModified, cellPatchConstrained 和pointMVC详细的插值方法介绍。以cell">
+<meta property="og:type" content="article">
 <meta property="og:title" content="zhaopeng">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/28/openfoam中Eular网格上的流场值插值到某一个点/index.html">
 <meta property="og:site_name" content="zhaopeng">
+<meta property="og:description" content="openfoam中Eular网格上的流场值插值到某一个点在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数源文件可点击总共有六种插值方法cell, cellPoint, cellPointFace, cellPointWallModified, cellPatchConstrained 和pointMVC详细的插值方法介绍。以cell">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-05T01:40:19.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zhaopeng">
+<meta name="twitter:description" content="openfoam中Eular网格上的流场值插值到某一个点在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数源文件可点击总共有六种插值方法cell, cellPoint, cellPointFace, cellPointWallModified, cellPatchConstrained 和pointMVC详细的插值方法介绍。以cell">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/28/openfoam中Eular网格上的流场值插值到某一个点/"/>
 
 
 
 
 
-  <title>zhaopeng</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> | zhaopeng</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-  page-home">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,9 +277,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -306,9 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/28/openfoam中Eular网格上的流场值插值到某一个点/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -358,17 +359,13 @@
       
 
       
-        
-          
-            <h2 id="openfoam中Eular网格上的流场值插值到某一个点"><a href="#openfoam中Eular网格上的流场值插值到某一个点" class="headerlink" title="openfoam中Eular网格上的流场值插值到某一个点"></a>openfoam中Eular网格上的流场值插值到某一个点</h2><p>在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数<a href="https://github.com/OpenFOAM/OpenFOAM-2.0.x/tree/master/src/finiteVolume/interpolation/interpolation" target="_blank" rel="noopener">源文件可点击</a>总共有六种插值方法<code>cell</code>, <code>cellPoint</code>, <code>cellPointFace</code>, <code>cellPointWallModified</code>, <code>cellPatchConstrained</code> 和<code>pointMVC</code><a href="http://openfoamwiki.net/index.php/Interpolation_%28by_cell%29" target="_blank" rel="noopener">详细的插值方法介绍</a>。以<code>cellPoint</code>为例介绍插值流体速度U到颗粒某一位置i：<br>（1）只使用某一种插值方法：</p>
+        <h2 id="openfoam中Eular网格上的流场值插值到某一个点"><a href="#openfoam中Eular网格上的流场值插值到某一个点" class="headerlink" title="openfoam中Eular网格上的流场值插值到某一个点"></a>openfoam中Eular网格上的流场值插值到某一个点</h2><p>在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数<a href="https://github.com/OpenFOAM/OpenFOAM-2.0.x/tree/master/src/finiteVolume/interpolation/interpolation" target="_blank" rel="noopener">源文件可点击</a>总共有六种插值方法<code>cell</code>, <code>cellPoint</code>, <code>cellPointFace</code>, <code>cellPointWallModified</code>, <code>cellPatchConstrained</code> 和<code>pointMVC</code><a href="http://openfoamwiki.net/index.php/Interpolation_%28by_cell%29" target="_blank" rel="noopener">详细的插值方法介绍</a>。以<code>cellPoint</code>为例介绍插值流体速度U到颗粒某一位置i：<br>（1）只使用某一种插值方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolationCellPoint.H&quot;</span><br><span class="line"></span><br><span class="line">		interpolateCellpoint&lt;vector&gt; UInterpolate(U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate.interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <p>如果想使用其他方法修改头文件即可<br>（2）若是对不同量采用不同的插值方法，则可以写成指针形式，从字典中调用对应方法的关键字即可：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolation.H&quot;</span><br><span class="line"></span><br><span class="line">		dictionary interpolationDict = U.mesh().schemesDict().subDict(&quot;interpolation&quot;);</span><br><span class="line">		autoPtr&lt;interpolation&lt;vector&gt;&gt; UInterpolate = interpolation&lt;vector&gt;::New(interpolationDict,U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate-&gt;interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <p>具体的方法在算例文件夹下<code>system/fvSchemes</code> <code>interpolation</code>子文件中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interpolation</span><br><span class="line">&#123;</span><br><span class="line">		U cellPoint;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -385,154 +382,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaopeng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaopeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/23/test/" itemprop="url">ToLLy</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T00:00:00+08:00">
-                2018-08-23
-              </time>
+              <a href="/2018/08/23/test/" rel="next" title="ToLLy">
+                <i class="fa fa-chevron-left"></i> ToLLy
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随意聊/" itemprop="url" rel="index">
-                    <span itemprop="name">随意聊</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h3 id="Just-for-testing"><a href="#Just-for-testing" class="headerlink" title="Just for testing"></a>Just for testing</h3><p>Hello world！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -542,10 +413,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -553,6 +425,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -573,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -634,6 +519,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#openfoam中Eular网格上的流场值插值到某一个点"><span class="nav-number">1.</span> <span class="nav-text">openfoam中Eular网格上的流场值插值到某一个点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -767,6 +668,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
