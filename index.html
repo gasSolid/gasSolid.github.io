@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/OpenFOAM使用技巧总结（持续更新2019.01.06）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/OpenFOAM使用技巧总结（持续更新2019.01.06）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaopeng">
@@ -308,7 +308,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/28/OpenFOAM使用技巧总结（持续更新2019.01.06）/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/03/29/OpenFOAM使用技巧总结（持续更新2019.01.06）/" itemprop="url">OpenFOAM使用技巧总结</a></h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-28T21:58:05+08:00">
-                2019-03-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-29T00:00:00+08:00">
+                2019-03-29
               </time>
             
 
@@ -330,6 +330,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenFOAM/" itemprop="url" rel="index">
+                    <span itemprop="name">OpenFOAM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -360,10 +382,7 @@
       
         
           
-            <hr>
-<p>title: OpenFOAM使用技巧总结<br>date: 2019-03-29<br>categories: OpenFOAM</p>
-<hr>
-<h2 id="OpenFOAM使用技巧总结（持续更新2019-01-06）"><a href="#OpenFOAM使用技巧总结（持续更新2019-01-06）" class="headerlink" title="OpenFOAM使用技巧总结（持续更新2019.01.06）"></a>OpenFOAM使用技巧总结（持续更新2019.01.06）</h2><ol>
+            <h2 id="OpenFOAM使用技巧总结（持续更新2019-01-06）"><a href="#OpenFOAM使用技巧总结（持续更新2019-01-06）" class="headerlink" title="OpenFOAM使用技巧总结（持续更新2019.01.06）"></a>OpenFOAM使用技巧总结（持续更新2019.01.06）</h2><ol>
 <li>矢量数组可以新建为矢量列表形式，初始化方法为：<br><code>List&lt;vector&gt; a = (n,vector::zero)</code></li>
 <li><p>生成不同数据类型的链表并初始化：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&quot;Tuple2.H&quot;</span><br><span class="line">	List&lt;Tuple2&lt;label, List&lt;scalar&gt;&gt;&gt; complexData(100);</span><br><span class="line">	forAll(complexData, i)</span><br><span class="line">        &#123;</span><br><span class="line">            complexData[i].first() = rndGen.integer(0, Pstream::nProcs()-1);</span><br><span class="line">            complexData[i].second().setSize(3);</span><br><span class="line">            complexData[i].second()[0] = 1;</span><br><span class="line">            complexData[i].second()[1] = 2;</span><br><span class="line">            complexData[i].second()[2] = 3;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
@@ -582,6 +601,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/openfoam中Eular网格上的流场值插值到某一个点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaopeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaopeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/23/openfoam中Eular网格上的流场值插值到某一个点/" itemprop="url">OpenFOAM中Eular网格上的流场值插值到某一个点</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T00:00:00+08:00">
+                2018-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenFOAM/" itemprop="url" rel="index">
+                    <span itemprop="name">OpenFOAM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="openfoam中Eular网格上的流场值插值到某一个点"><a href="#openfoam中Eular网格上的流场值插值到某一个点" class="headerlink" title="openfoam中Eular网格上的流场值插值到某一个点"></a>openfoam中Eular网格上的流场值插值到某一个点</h2><p>在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数<a href="https://github.com/OpenFOAM/OpenFOAM-2.0.x/tree/master/src/finiteVolume/interpolation/interpolation" target="_blank" rel="noopener">源文件可点击</a>总共有六种插值方法<code>cell</code>, <code>cellPoint</code>, <code>cellPointFace</code>, <code>cellPointWallModified</code>, <code>cellPatchConstrained</code> 和<code>pointMVC</code><a href="http://openfoamwiki.net/index.php/Interpolation_%28by_cell%29" target="_blank" rel="noopener">详细的插值方法介绍</a>。以<code>cellPoint</code>为例介绍插值流体速度U到颗粒某一位置i：<br>（1）只使用某一种插值方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolationCellPoint.H&quot;</span><br><span class="line"></span><br><span class="line">		interpolateCellpoint&lt;vector&gt; UInterpolate(U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate.interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>如果想使用其他方法修改头文件即可<br>（2）若是对不同量采用不同的插值方法，则可以写成指针形式，从字典中调用对应方法的关键字即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolation.H&quot;</span><br><span class="line"></span><br><span class="line">		dictionary interpolationDict = U.mesh().schemesDict().subDict(&quot;interpolation&quot;);</span><br><span class="line">		autoPtr&lt;interpolation&lt;vector&gt;&gt; UInterpolate = interpolation&lt;vector&gt;::New(interpolationDict,U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate-&gt;interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>具体的方法在算例文件夹下<code>system/fvSchemes</code> <code>interpolation</code>子文件中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interpolation</span><br><span class="line">&#123;</span><br><span class="line">		U cellPoint;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -711,153 +877,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/openfoam中Eular网格上的流场值插值到某一个点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaopeng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaopeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/23/openfoam中Eular网格上的流场值插值到某一个点/" itemprop="url">ToLLy</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T00:00:00+08:00">
-                2018-08-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随意聊/" itemprop="url" rel="index">
-                    <span itemprop="name">随意聊</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="openfoam中Eular网格上的流场值插值到某一个点"><a href="#openfoam中Eular网格上的流场值插值到某一个点" class="headerlink" title="openfoam中Eular网格上的流场值插值到某一个点"></a>openfoam中Eular网格上的流场值插值到某一个点</h2><p>在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数<a href="https://github.com/OpenFOAM/OpenFOAM-2.0.x/tree/master/src/finiteVolume/interpolation/interpolation" target="_blank" rel="noopener">源文件可点击</a>总共有六种插值方法<code>cell</code>, <code>cellPoint</code>, <code>cellPointFace</code>, <code>cellPointWallModified</code>, <code>cellPatchConstrained</code> 和<code>pointMVC</code><a href="http://openfoamwiki.net/index.php/Interpolation_%28by_cell%29" target="_blank" rel="noopener">详细的插值方法介绍</a>。以<code>cellPoint</code>为例介绍插值流体速度U到颗粒某一位置i：<br>（1）只使用某一种插值方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolationCellPoint.H&quot;</span><br><span class="line"></span><br><span class="line">		interpolateCellpoint&lt;vector&gt; UInterpolate(U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate.interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>如果想使用其他方法修改头文件即可<br>（2）若是对不同量采用不同的插值方法，则可以写成指针形式，从字典中调用对应方法的关键字即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolation.H&quot;</span><br><span class="line"></span><br><span class="line">		dictionary interpolationDict = U.mesh().schemesDict().subDict(&quot;interpolation&quot;);</span><br><span class="line">		autoPtr&lt;interpolation&lt;vector&gt;&gt; UInterpolate = interpolation&lt;vector&gt;::New(interpolationDict,U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate-&gt;interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>具体的方法在算例文件夹下<code>system/fvSchemes</code> <code>interpolation</code>子文件中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interpolation</span><br><span class="line">&#123;</span><br><span class="line">		U cellPoint;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -926,7 +945,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
