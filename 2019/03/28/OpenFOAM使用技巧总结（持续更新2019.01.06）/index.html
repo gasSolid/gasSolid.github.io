@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tuple2.H&amp;quot;	List&amp;lt;Tuple2&amp;lt;label, List&amp;lt;scalar&amp;gt;&amp;gt;&amp;g">
+<meta name="description" content="title: OpenFOAM使用技巧总结date: 2019-03-29categories: OpenFOAM  OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tupl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zhaopeng">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/OpenFOAM使用技巧总结（持续更新2019.01.06）/index.html">
 <meta property="og:site_name" content="zhaopeng">
-<meta property="og:description" content="OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tuple2.H&amp;quot;	List&amp;lt;Tuple2&amp;lt;label, List&amp;lt;scalar&amp;gt;&amp;gt;&amp;g">
+<meta property="og:description" content="title: OpenFOAM使用技巧总结date: 2019-03-29categories: OpenFOAM  OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tupl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T13:55:37.924Z">
+<meta property="og:updated_time" content="2019-03-29T00:05:40.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zhaopeng">
-<meta name="twitter:description" content="OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tuple2.H&amp;quot;	List&amp;lt;Tuple2&amp;lt;label, List&amp;lt;scalar&amp;gt;&amp;gt;&amp;g">
+<meta name="twitter:description" content="title: OpenFOAM使用技巧总结date: 2019-03-29categories: OpenFOAM  OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tupl">
 
 
 
@@ -359,7 +359,10 @@
       
 
       
-        <h2 id="OpenFOAM使用技巧总结（持续更新2019-01-06）"><a href="#OpenFOAM使用技巧总结（持续更新2019-01-06）" class="headerlink" title="OpenFOAM使用技巧总结（持续更新2019.01.06）"></a>OpenFOAM使用技巧总结（持续更新2019.01.06）</h2><ol>
+        <hr>
+<p>title: OpenFOAM使用技巧总结<br>date: 2019-03-29<br>categories: OpenFOAM</p>
+<hr>
+<h2 id="OpenFOAM使用技巧总结（持续更新2019-01-06）"><a href="#OpenFOAM使用技巧总结（持续更新2019-01-06）" class="headerlink" title="OpenFOAM使用技巧总结（持续更新2019.01.06）"></a>OpenFOAM使用技巧总结（持续更新2019.01.06）</h2><ol>
 <li>矢量数组可以新建为矢量列表形式，初始化方法为：<br><code>List&lt;vector&gt; a = (n,vector::zero)</code></li>
 <li><p>生成不同数据类型的链表并初始化：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&quot;Tuple2.H&quot;</span><br><span class="line">	List&lt;Tuple2&lt;label, List&lt;scalar&gt;&gt;&gt; complexData(100);</span><br><span class="line">	forAll(complexData, i)</span><br><span class="line">        &#123;</span><br><span class="line">            complexData[i].first() = rndGen.integer(0, Pstream::nProcs()-1);</span><br><span class="line">            complexData[i].second().setSize(3);</span><br><span class="line">            complexData[i].second()[0] = 1;</span><br><span class="line">            complexData[i].second()[1] = 2;</span><br><span class="line">            complexData[i].second()[2] = 3;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
