@@ -389,7 +389,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const faceList &amp; ff = mesh.faces();</span><br><span class="line">const pointField &amp; pp = mesh.points();</span><br><span class="line"></span><br><span class="line">forAll ( mesh.C(), celli)</span><br><span class="line">&#123;</span><br><span class="line">    const cell &amp; cc = mesh.cells()[celli];</span><br><span class="line">    labelList pLabels(cc.labels(ff));</span><br><span class="line">    pointField pLocal(pLabels.size(), vector::zero);</span><br><span class="line"></span><br><span class="line">    forAll (pLabels, pointi)</span><br><span class="line">           pLobal[pointi] = pp[pLabels[pointi]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="9">
 <li><p>BiCGStab solver in OpenFOAM （收敛性更佳，适合rotating meshes）<a href="https://www.cfd-online.com/Forums/openfoam-solving/152980-pbicg-vs-smoothsolver.html" target="_blank" rel="noopener">出自cfd-online</a>，</p>
-<p><a href="https://github.com/unicfdlab/libcompressibleTools" target="_blank" rel="noopener">求解器网站地址</a>, 运行makeLib.sh(OpenFOAM-x.x.x/FoamFourierAnalysis/fftw-3.3.3/文件夹下configure加执行权限)。</p>
+<p>求解器网站:<a href="https://github.com/unicfdlab/libcompressibleTools" target="_blank" rel="noopener">地址</a>, </p>
+<p>注意：运行makeLib.sh(OpenFOAM-x.x.x/FoamFourierAnalysis/fftw-3.3.3/文件夹下configure加执行权限)。</p>
 </li>
 </ol>
 
