@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[OpenFOAM使用技巧总结]]></title>
     <url>%2F2019%2F03%2F29%2FOpenFOAM%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B02019.01.06%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&lt;vector&gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&quot;Tuple2.H&quot; List&lt;Tuple2&lt;label, List&lt;scalar&gt;&gt;&gt; complexData(100); forAll(complexData, i) &#123; complexData[i].first() = rndGen.integer(0, Pstream::nProcs()-1); complexData[i].second().setSize(3); complexData[i].second()[0] = 1; complexData[i].second()[1] = 2; complexData[i].second()[2] = 3; &#125; 尽量避免循环。例如：如果需要定义一个分段函数，可以利用pos 和neg函数： 1234v = a, if x &lt; bv = c if x &gt; b// can be coded as volScalarField v = neg(x - b)*a + pos(x-b)*c; 多进程可以使用Sout或者Pout输出全部数据 从dictionary中读取vector和scalar不同：例如： 12vector U1(dict.lookup(&quot;U1&quot;));scalar r1(readScalar(dict.loocup(&quot;r1&quot;))); 对于label读取没有专门函数，可以以scalar类型读取后进行强制类型转换； 对于并计算:Foam::gSum(a)可以获取不同进程中场a的加和；Pstream::nProcs()获取并行的进程数；Pstream::myProcNo()获取当前的进程数 对于已经画好的网格需要在某个方向平移，或者放大缩小可以采用transformPoints操作： 12transformPoints -scale &quot;(1 1 0.5)&quot; //z方向网格点缩小0.5倍transformPoints -translate &quot;(0 0 0.5)&quot; //z方向整体向上平移0.5 返回某一网格的8个顶点坐标：出自cfd-online，亲测有效 123456789101112const faceList &amp; ff = mesh.faces();const pointField &amp; pp = mesh.points();forAll ( mesh.C(), celli)&#123; const cell &amp; cc = mesh.cells()[celli]; labelList pLabels(cc.labels(ff)); pointField pLocal(pLabels.size(), vector::zero); forAll (pLabels, pointi) pLobal[pointi] = pp[pLabels[pointi]];&#125;]]></content>
+    <content type="text"><![CDATA[OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&lt;vector&gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&quot;Tuple2.H&quot; List&lt;Tuple2&lt;label, List&lt;scalar&gt;&gt;&gt; complexData(100); forAll(complexData, i) &#123; complexData[i].first() = rndGen.integer(0, Pstream::nProcs()-1); complexData[i].second().setSize(3); complexData[i].second()[0] = 1; complexData[i].second()[1] = 2; complexData[i].second()[2] = 3; &#125; 尽量避免循环。例如：如果需要定义一个分段函数，可以利用pos 和neg函数： 1234v = a, if x &lt; bv = c if x &gt; b// can be coded as volScalarField v = neg(x - b)*a + pos(x-b)*c; 多进程可以使用Sout或者Pout输出全部数据 从dictionary中读取vector和scalar不同：例如： 12vector U1(dict.lookup(&quot;U1&quot;));scalar r1(readScalar(dict.loocup(&quot;r1&quot;))); 对于label读取没有专门函数，可以以scalar类型读取后进行强制类型转换； 对于并计算:Foam::gSum(a)可以获取不同进程中场a的加和；Pstream::nProcs()获取并行的进程数；Pstream::myProcNo()获取当前的进程数 对于已经画好的网格需要在某个方向平移，或者放大缩小可以采用transformPoints操作： 12transformPoints -scale &quot;(1 1 0.5)&quot; //z方向网格点缩小0.5倍transformPoints -translate &quot;(0 0 0.5)&quot; //z方向整体向上平移0.5 返回某一网格的8个顶点坐标：出自cfd-online，亲测有效 123456789101112const faceList &amp; ff = mesh.faces();const pointField &amp; pp = mesh.points();forAll ( mesh.C(), celli)&#123; const cell &amp; cc = mesh.cells()[celli]; labelList pLabels(cc.labels(ff)); pointField pLocal(pLabels.size(), vector::zero); forAll (pLabels, pointi) pLobal[pointi] = pp[pLabels[pointi]];&#125; BiCGStab solver in OpenFOAM （收敛性更佳，适合rotating meshes）出自cfd-online， 求解器网站地址, 运行makeLib.sh(OpenFOAM-x.x.x/FoamFourierAnalysis/fftw-3.3.3/文件夹下configure加执行权限)。]]></content>
       <categories>
         <category>OpenFOAM</category>
       </categories>
@@ -29,17 +29,6 @@
       </categories>
       <tags>
         <tag>interpolated</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[ToLLy]]></title>
-    <url>%2F2018%2F08%2F23%2Ftest%2F</url>
-    <content type="text"><![CDATA[Just for testingHello world！]]></content>
-      <categories>
-        <category>随意聊</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
 </search>
