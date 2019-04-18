@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="interpolated," />
+  <meta name="keywords" content="OpenFOAMV6 CentOs7," />
 
 
 
@@ -79,18 +79,24 @@
 
 
 
-<meta name="description" content="openfoam中Eular网格上的流场值插值到某一个点在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数源文件可点击总共有六种插值方法cell, cellPoint, cellPointFace, cellPointWallModified, cellPatchConstrained 和pointMVC详细的插值方法介绍。以cell">
-<meta name="keywords" content="interpolated">
+<meta name="description" content="虚拟机上在线安装OpenFOAM网络连接问题虚拟机上网络配置在虚拟机虚拟机上安装CentOs7系统教程很多，在此不多做赘述，详情可参考. 不过需要注意的是，如果您想最小安装（无图像化界面，通过命令来操控）则选择下图的软件选择中最小安装即可 需要图像化界面，则需要点击软件选择，进去选择GNOME界面：  接下来安装教程完成所有的安装以及网络设置。 可以通过在终端键入ping baidu.com来检查">
+<meta name="keywords" content="OpenFOAMV6 CentOs7">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenFOAM中Eular网格上的流场值插值到某一个点">
-<meta property="og:url" content="http://yoursite.com/2018/08/23/openfoam中Eular网格上的流场值插值到某一个点/index.html">
+<meta property="og:title" content="虚拟机上在线安装OpenFOAMV6网络连接问题">
+<meta property="og:url" content="http://yoursite.com/2019/04/18/虚拟机上在线安装OpenFOAM网络连接问题/index.html">
 <meta property="og:site_name" content="zhaopeng">
-<meta property="og:description" content="openfoam中Eular网格上的流场值插值到某一个点在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数源文件可点击总共有六种插值方法cell, cellPoint, cellPointFace, cellPointWallModified, cellPatchConstrained 和pointMVC详细的插值方法介绍。以cell">
+<meta property="og:description" content="虚拟机上在线安装OpenFOAM网络连接问题虚拟机上网络配置在虚拟机虚拟机上安装CentOs7系统教程很多，在此不多做赘述，详情可参考. 不过需要注意的是，如果您想最小安装（无图像化界面，通过命令来操控）则选择下图的软件选择中最小安装即可 需要图像化界面，则需要点击软件选择，进去选择GNOME界面：  接下来安装教程完成所有的安装以及网络设置。 可以通过在终端键入ping baidu.com来检查">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-29T00:11:47.258Z">
+<meta property="og:image" content="d:/blog/source/_posts/虚拟机上在线安装OpenFOAM网络连接问题/微信图片_20190418104831.png">
+<meta property="og:image" content="d:/blog/source/_posts/虚拟机上在线安装OpenFOAM网络连接问题/微信截图_20190418120145.png">
+<meta property="og:image" content="d:/blog/source/_posts/虚拟机上在线安装OpenFOAM网络连接问题/微信截图_20190418120323.png">
+<meta property="og:image" content="d:/blog/source/_posts/虚拟机上在线安装OpenFOAM网络连接问题/微信图片_20190418105919.png">
+<meta property="og:image" content="d:/blog/source/_posts/虚拟机上在线安装OpenFOAM网络连接问题/微信图片编辑_20190418110614.jpg">
+<meta property="og:updated_time" content="2019-04-18T04:38:37.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenFOAM中Eular网格上的流场值插值到某一个点">
-<meta name="twitter:description" content="openfoam中Eular网格上的流场值插值到某一个点在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数源文件可点击总共有六种插值方法cell, cellPoint, cellPointFace, cellPointWallModified, cellPatchConstrained 和pointMVC详细的插值方法介绍。以cell">
+<meta name="twitter:title" content="虚拟机上在线安装OpenFOAMV6网络连接问题">
+<meta name="twitter:description" content="虚拟机上在线安装OpenFOAM网络连接问题虚拟机上网络配置在虚拟机虚拟机上安装CentOs7系统教程很多，在此不多做赘述，详情可参考. 不过需要注意的是，如果您想最小安装（无图像化界面，通过命令来操控）则选择下图的软件选择中最小安装即可 需要图像化界面，则需要点击软件选择，进去选择GNOME界面：  接下来安装教程完成所有的安装以及网络设置。 可以通过在终端键入ping baidu.com来检查">
+<meta name="twitter:image" content="d:/blog/source/_posts/虚拟机上在线安装OpenFOAM网络连接问题/微信图片_20190418104831.png">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/23/openfoam中Eular网格上的流场值插值到某一个点/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/18/虚拟机上在线安装OpenFOAM网络连接问题/"/>
 
 
 
 
 
-  <title>OpenFOAM中Eular网格上的流场值插值到某一个点 | zhaopeng</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>虚拟机上在线安装OpenFOAMV6网络连接问题 | zhaopeng</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -273,7 +279,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/openfoam中Eular网格上的流场值插值到某一个点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/虚拟机上在线安装OpenFOAM网络连接问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaopeng">
@@ -290,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OpenFOAM中Eular网格上的流场值插值到某一个点</h1>
+          <h1 class="post-title" itemprop="name headline">虚拟机上在线安装OpenFOAMV6网络连接问题</h1>
         
 
         <div class="post-meta">
@@ -302,8 +308,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T00:00:00+08:00">
-                2018-08-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T00:00:00+08:00">
+                2019-04-18
               </time>
             
 
@@ -325,8 +331,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenFOAM/" itemprop="url" rel="index">
-                    <span itemprop="name">OpenFOAM</span>
+                  <a href="/categories/install/" itemprop="url" rel="index">
+                    <span itemprop="name">install</span>
                   </a>
                 </span>
 
@@ -362,12 +368,20 @@
       
 
       
-        <h2 id="openfoam中Eular网格上的流场值插值到某一个点"><a href="#openfoam中Eular网格上的流场值插值到某一个点" class="headerlink" title="openfoam中Eular网格上的流场值插值到某一个点"></a>openfoam中Eular网格上的流场值插值到某一个点</h2><p>在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数<a href="https://github.com/OpenFOAM/OpenFOAM-2.0.x/tree/master/src/finiteVolume/interpolation/interpolation" target="_blank" rel="noopener">源文件可点击</a>总共有六种插值方法<code>cell</code>, <code>cellPoint</code>, <code>cellPointFace</code>, <code>cellPointWallModified</code>, <code>cellPatchConstrained</code> 和<code>pointMVC</code><a href="http://openfoamwiki.net/index.php/Interpolation_%28by_cell%29" target="_blank" rel="noopener">详细的插值方法介绍</a>。以<code>cellPoint</code>为例介绍插值流体速度U到颗粒某一位置i：<br>（1）只使用某一种插值方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolationCellPoint.H&quot;</span><br><span class="line"></span><br><span class="line">		interpolateCellpoint&lt;vector&gt; UInterpolate(U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate.interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>如果想使用其他方法修改头文件即可<br>（2）若是对不同量采用不同的插值方法，则可以写成指针形式，从字典中调用对应方法的关键字即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolation.H&quot;</span><br><span class="line"></span><br><span class="line">		dictionary interpolationDict = U.mesh().schemesDict().subDict(&quot;interpolation&quot;);</span><br><span class="line">		autoPtr&lt;interpolation&lt;vector&gt;&gt; UInterpolate = interpolation&lt;vector&gt;::New(interpolationDict,U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate-&gt;interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>具体的方法在算例文件夹下<code>system/fvSchemes</code> <code>interpolation</code>子文件中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interpolation</span><br><span class="line">&#123;</span><br><span class="line">		U cellPoint;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="虚拟机上在线安装OpenFOAM网络连接问题"><a href="#虚拟机上在线安装OpenFOAM网络连接问题" class="headerlink" title="虚拟机上在线安装OpenFOAM网络连接问题"></a>虚拟机上在线安装OpenFOAM网络连接问题</h2><h3 id="虚拟机上网络配置"><a href="#虚拟机上网络配置" class="headerlink" title="虚拟机上网络配置"></a>虚拟机上网络配置</h3><p>在虚拟机虚拟机上安装CentOs7系统教程很多，在此不多做赘述，详情可<a href="https://blog.csdn.net/maguanghui_2012/article/details/80518201" target="_blank" rel="noopener">参考</a>.</p>
+<p>不过需要注意的是，如果您想最小安装（无图像化界面，通过命令来操控）则选择下图的软件选择中最小安装即可<img src="D:\blog\source\_posts\虚拟机上在线安装OpenFOAM网络连接问题\微信图片_20190418104831.png" alt="微信图片_20190418104831"></p>
+<p>需要图像化界面，则需要点击软件选择，进去选择GNOME界面：</p>
+<p><img src="D:\blog\source\_posts\虚拟机上在线安装OpenFOAM网络连接问题\微信截图_20190418120145.png" alt="微信截图_20190418120145"></p>
+<p>接下来安装教程完成所有的安装以及网络设置。</p>
+<p>可以通过在终端键入<code>ping baidu.com</code>来检查网络是否配置成功，</p>
+<p><img src="D:\blog\source\_posts\虚拟机上在线安装OpenFOAM网络连接问题\微信截图_20190418120323.png" alt="微信截图_20190418120323"></p>
+<p>若<code>ping</code>失败,如果您的主机是通过网线连接，则需要检查虚拟机设置中网络适配器是否通过NAT方式连接，如果不是，则需要修改<img src="D:\blog\source\_posts\虚拟机上在线安装OpenFOAM网络连接问题\微信图片_20190418105919.png" alt="微信图片_20190418105919"></p>
+<p>修改完后返回虚拟机，在终端键入<code>service network restart</code>后再次<code>ping</code>进行测试。</p>
+<p>如果不幸网路再次连接失败，需要点击下图的<code>编辑-&gt;虚拟网络编辑器-&gt;更改设置</code>界面后点击<code>还原默认设置</code>按照安装教程重新配置网络，当然不要忘记安装上图修改连接方式为NAT方式。<img src="D:\blog\source\_posts\虚拟机上在线安装OpenFOAM网络连接问题\微信图片编辑_20190418110614.jpg" alt="微信图片编辑_20190418110614"></p>
+<h3 id="OpenFOAM安装"><a href="#OpenFOAM安装" class="headerlink" title="OpenFOAM安装"></a>OpenFOAM安装</h3><p>OpenFOAM安装是根据官网<a href="https://openfoam.org/download/6-linux/" target="_blank" rel="noopener">教程安装</a></p>
+<p>具体命令摘录出来为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//检查linux操作系统版本是否是3.10或者更高</span><br><span class="line">uname -r	</span><br><span class="line">// 安装准备以及正式安装</span><br><span class="line">sudo yum -y update</span><br><span class="line">curl -fsSL https://get.docker.com/ | sh</span><br><span class="line">sudo systemctl enable docker.service</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">sudo usermod -aG docker $(whoami)</span><br><span class="line">sudo sh -c &quot;wget http://dl.openfoam.org/docker/openfoam6-linux -O /usr/bin/openfoam6-linux&quot;</span><br><span class="line">sudo chmod 755 /usr/bin/openfoam6-linux</span><br><span class="line">mkdir -p $HOME/OpenFOAM/$&#123;USER&#125;-6</span><br><span class="line">cd $HOME/OpenFOAM/$&#123;USER&#125;-6</span><br><span class="line">openfoam6-linux	</span><br><span class="line">// 装完测试</span><br><span class="line">mkdir -p $FOAM_RUN</span><br><span class="line">cd $FOAM_RUN</span><br><span class="line">cp -r $FOAM_TUTORIALS/incompressible/simpleFoam/pitzDaily .</span><br><span class="line">cd pitzDaily</span><br><span class="line">blockMesh</span><br><span class="line">simpleFoam</span><br><span class="line">paraFoam</span><br></pre></td></tr></table></figure>
+<p>预祝大家安装顺利！</p>
 
       
     </div>
@@ -385,7 +399,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/interpolated/" rel="tag"># interpolated</a>
+            <a href="/tags/OpenFOAMV6-CentOs7/" rel="tag"># OpenFOAMV6 CentOs7</a>
           
         </div>
       
@@ -398,15 +412,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/29/OpenFOAM使用技巧总结（持续更新2019.01.06）/" rel="next" title="OpenFOAM使用技巧总结">
+                <i class="fa fa-chevron-left"></i> OpenFOAM使用技巧总结
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/23/test/" rel="prev" title="ToLLy">
-                ToLLy <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -538,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#openfoam中Eular网格上的流场值插值到某一个点"><span class="nav-number">1.</span> <span class="nav-text">openfoam中Eular网格上的流场值插值到某一个点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机上在线安装OpenFOAM网络连接问题"><span class="nav-number">1.</span> <span class="nav-text">虚拟机上在线安装OpenFOAM网络连接问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机上网络配置"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟机上网络配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenFOAM安装"><span class="nav-number">1.2.</span> <span class="nav-text">OpenFOAM安装</span></a></li></ol></li></ol></div>
             
 
           </div>
