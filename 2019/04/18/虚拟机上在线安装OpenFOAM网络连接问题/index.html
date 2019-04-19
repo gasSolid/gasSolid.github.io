@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://wx4.sinaimg.cn/large/c995d2fagy1g27xv8byf2j20mb0990tk.jpg">
 <meta property="og:image" content="https://wx4.sinaimg.cn/large/c995d2fagy1g27xv8jv2wj20p10k3gp5.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/c995d2fagy1g27xv8ntlsj20vr0kjq55.jpg">
-<meta property="og:updated_time" content="2019-04-19T07:17:30.702Z">
+<meta property="og:updated_time" content="2019-04-19T07:29:44.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="虚拟机上在线安装OpenFOAMv6网络连接问题">
 <meta name="twitter:description" content="虚拟机上网络配置在虚拟机虚拟机上安装CentOs7系统教程很多，在此不多做赘述，详情可参考. 不过需要注意的是，如果您想最小安装（无图像化界面，通过命令来操控）则选择下图的软件选择中最小安装即可  如果要图像化界面，则需要点击软件选择，进去选择GNOME界面：  接下来安装教程完成所有的安装以及网络设置。 可以通过在终端键入ping baidu.com来检查网络是否配置成功（如下图即为成功），">
@@ -381,7 +381,7 @@
 <p>修改完后返回虚拟机，在终端键入<code>service network restart</code>后再次<code>ping</code>进行测试。</p>
 <p>如果不幸网路再次连接失败，需要点击下图的<code>编辑-&gt;虚拟网络编辑器-&gt;更改设置</code>界面后点击<code>还原默认设置</code>按照安装教程重新配置网络，当然不要忘记安装上图修改连接方式为NAT方式。</p>
 <p><img src="https://ws3.sinaimg.cn/large/c995d2fagy1g27xv8ntlsj20vr0kjq55.jpg" alt="微信图片编辑_20190418110614"></p>
-<p>OpenFOAM安装是根据官网<a href="https://openfoam.org/download/6-linux/" target="_blank" rel="noopener">教程安装</a>(<strong>特别要注意从主机往虚拟机复制文件时要采用</strong><code>复制粘贴</code> <strong>的形式，直接拖动会造成文件损坏</strong>)</p>
+<h3 id="OpenFOAM安装"><a href="#OpenFOAM安装" class="headerlink" title="OpenFOAM安装"></a>OpenFOAM安装</h3><p>OpenFOAM安装是根据官网<a href="https://openfoam.org/download/6-linux/" target="_blank" rel="noopener">教程安装</a>(<strong>特别要注意从主机往虚拟机复制文件时要采用</strong><code>复制粘贴</code> <strong>的形式，直接拖动会造成文件损坏</strong>)</p>
 <p>具体命令摘录出来为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//检查linux操作系统版本是否是3.10或者更高</span><br><span class="line">uname -r	</span><br><span class="line">// 安装准备以及正式安装</span><br><span class="line">sudo yum -y update</span><br><span class="line">curl -fsSL https://get.docker.com/ | sh</span><br><span class="line">sudo systemctl enable docker.service</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">sudo usermod -aG docker $(whoami)</span><br><span class="line">sudo sh -c &quot;wget http://dl.openfoam.org/docker/openfoam6-linux -O /usr/bin/openfoam6-linux&quot;</span><br><span class="line">sudo chmod 755 /usr/bin/openfoam6-linux</span><br><span class="line">mkdir -p $HOME/OpenFOAM/$&#123;USER&#125;-6</span><br><span class="line">cd $HOME/OpenFOAM/$&#123;USER&#125;-6</span><br><span class="line">openfoam6-linux	</span><br><span class="line">// 装完测试</span><br><span class="line">mkdir -p $FOAM_RUN</span><br><span class="line">cd $FOAM_RUN</span><br><span class="line">cp -r $FOAM_TUTORIALS/incompressible/simpleFoam/pitzDaily .</span><br><span class="line">cd pitzDaily</span><br><span class="line">blockMesh</span><br><span class="line">simpleFoam</span><br><span class="line">paraFoam</span><br></pre></td></tr></table></figure>
 <p>预祝大家安装顺利！</p>
@@ -555,7 +555,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机上网络配置"><span class="nav-number">1.</span> <span class="nav-text">虚拟机上网络配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机上网络配置"><span class="nav-number">1.</span> <span class="nav-text">虚拟机上网络配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenFOAM安装"><span class="nav-number">2.</span> <span class="nav-text">OpenFOAM安装</span></a></li></ol></div>
             
 
           </div>
