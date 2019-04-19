@@ -375,7 +375,7 @@
 <p>修改完后返回虚拟机，在终端键入<code>service network restart</code>后再次<code>ping</code>进行测试。</p>
 <p>如果不幸网路再次连接失败，需要点击下图的<code>编辑-&gt;虚拟网络编辑器-&gt;更改设置</code>界面后点击<code>还原默认设置</code>按照安装教程重新配置网络，当然不要忘记安装上图修改连接方式为NAT方式。</p>
 <p><img src="https://ws3.sinaimg.cn/large/c995d2fagy1g27xv8ntlsj20vr0kjq55.jpg" alt="微信图片编辑_20190418110614"></p>
-<p>OpenFOAM安装是根据官网<a href="https://openfoam.org/download/6-linux/" target="_blank" rel="noopener">教程安装</a>(==特别要注意从主机往虚拟机复制文件时要采用<code>复制粘贴</code>的形式，直接拖动会造成文件损坏==)</p>
+<p>OpenFOAM安装是根据官网<a href="https://openfoam.org/download/6-linux/" target="_blank" rel="noopener">教程安装</a>(<strong>特别要注意从主机往虚拟机复制文件时要采用</strong><code>复制粘贴</code> <strong>的形式，直接拖动会造成文件损坏</strong>)</p>
 <p>具体命令摘录出来为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//检查linux操作系统版本是否是3.10或者更高</span><br><span class="line">uname -r	</span><br><span class="line">// 安装准备以及正式安装</span><br><span class="line">sudo yum -y update</span><br><span class="line">curl -fsSL https://get.docker.com/ | sh</span><br><span class="line">sudo systemctl enable docker.service</span><br><span class="line">sudo systemctl start docker</span><br><span class="line">sudo usermod -aG docker $(whoami)</span><br><span class="line">sudo sh -c &quot;wget http://dl.openfoam.org/docker/openfoam6-linux -O /usr/bin/openfoam6-linux&quot;</span><br><span class="line">sudo chmod 755 /usr/bin/openfoam6-linux</span><br><span class="line">mkdir -p $HOME/OpenFOAM/$&#123;USER&#125;-6</span><br><span class="line">cd $HOME/OpenFOAM/$&#123;USER&#125;-6</span><br><span class="line">openfoam6-linux	</span><br><span class="line">// 装完测试</span><br><span class="line">mkdir -p $FOAM_RUN</span><br><span class="line">cd $FOAM_RUN</span><br><span class="line">cp -r $FOAM_TUTORIALS/incompressible/simpleFoam/pitzDaily .</span><br><span class="line">cd pitzDaily</span><br><span class="line">blockMesh</span><br><span class="line">simpleFoam</span><br><span class="line">paraFoam</span><br></pre></td></tr></table></figure>
 <p>预祝大家安装顺利！</p>
@@ -745,148 +745,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaopeng">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhaopeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/23/test/" itemprop="url">ToLLy</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T00:00:00+08:00">
-                2018-08-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随意聊/" itemprop="url" rel="index">
-                    <span itemprop="name">随意聊</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Just-for-testing"><a href="#Just-for-testing" class="headerlink" title="Just for testing"></a>Just for testing</h3><p>Hello world！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/openfoam中Eular网格上的流场值插值到某一个点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -986,6 +844,148 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;interpolation.H&quot;</span><br><span class="line"></span><br><span class="line">		dictionary interpolationDict = U.mesh().schemesDict().subDict(&quot;interpolation&quot;);</span><br><span class="line">		autoPtr&lt;interpolation&lt;vector&gt;&gt; UInterpolate = interpolation&lt;vector&gt;::New(interpolationDict,U);</span><br><span class="line">		forAll(particlePosition,i)&#123;</span><br><span class="line">				label cellID = mesh.findCell(particleposition[i]);</span><br><span class="line">				vector UInterp = UInterpolate-&gt;interpolate(particlePosition[i], cellID);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <p>具体的方法在算例文件夹下<code>system/fvSchemes</code> <code>interpolation</code>子文件中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interpolation</span><br><span class="line">&#123;</span><br><span class="line">		U cellPoint;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaopeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhaopeng">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/23/test/" itemprop="url">ToLLy</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T00:00:00+08:00">
+                2018-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随意聊/" itemprop="url" rel="index">
+                    <span itemprop="name">随意聊</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Just-for-testing"><a href="#Just-for-testing" class="headerlink" title="Just for testing"></a>Just for testing</h3><p>Hello world！</p>
 
           
         
