@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[OpenFOAM使用技巧总结]]></title>
+    <url>%2F2019%2F04%2F30%2FOpenFOAM%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B02019.01.06%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&lt;vector&gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&quot;Tuple2.H&quot; List&lt;Tuple2&lt;label, List&lt;scalar&gt;&gt;&gt; complexData(100); forAll(complexData, i) &#123; complexData[i].first() = rndGen.integer(0, Pstream::nProcs()-1); complexData[i].second().setSize(3); complexData[i].second()[0] = 1; complexData[i].second()[1] = 2; complexData[i].second()[2] = 3; &#125; 尽量避免循环。例如：如果需要定义一个分段函数，可以利用pos 和neg函数： 1234v = a, if x &lt; bv = c if x &gt; b// can be coded as volScalarField v = neg(x - b)*a + pos(x-b)*c; 多进程可以使用Sout或者Pout输出全部数据 从dictionary中读取vector和scalar不同：例如： 12vector U1(dict.lookup(&quot;U1&quot;));scalar r1(readScalar(dict.loocup(&quot;r1&quot;))); 对于label读取没有专门函数，可以以scalar类型读取后进行强制类型转换； 对于并计算:Foam::gSum(a)可以获取不同进程中场a的加和；Pstream::nProcs()获取并行的进程数；Pstream::myProcNo()获取当前的进程数 对于已经画好的网格需要在某个方向平移，或者放大缩小可以采用transformPoints操作： 12transformPoints -scale &quot;(1 1 0.5)&quot; //z方向网格点缩小0.5倍transformPoints -translate &quot;(0 0 0.5)&quot; //z方向整体向上平移0.5 返回某一网格的8个顶点坐标：出自cfd-online，亲测有效 123456789101112const faceList &amp; ff = mesh.faces();const pointField &amp; pp = mesh.points();forAll ( mesh.C(), celli)&#123; const cell &amp; cc = mesh.cells()[celli]; labelList pLabels(cc.labels(ff)); pointField pLocal(pLabels.size(), vector::zero); forAll (pLabels, pointi) pLobal[pointi] = pp[pLabels[pointi]];&#125; BiCGStab solver in OpenFOAM （收敛性更佳，适合rotating meshes）出自cfd-online， 求解器网站:地址, 注意：运行makeLib.sh(OpenFOAM-x.x.x/FoamFourierAnalysis/fftw-3.3.3/文件夹下configure加执行权限)。 输出错误并跳出执行(多用于程序调试过程中) 12FatalErrorIn("main.cpp pressure is unregular") &lt;&lt; abort(FatalError);]]></content>
+      <categories>
+        <category>OpenFOAM</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[虚拟机上在线安装OpenFOAMv6网络连接问题]]></title>
     <url>%2F2019%2F04%2F18%2F%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8A%E5%9C%A8%E7%BA%BF%E5%AE%89%E8%A3%85OpenFOAM%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[虚拟机上网络配置在虚拟机虚拟机上安装CentOs7系统教程很多，在此不多做赘述，详情可参考. 不过需要注意的是，如果您想最小安装（无图像化界面，通过命令来操控）则选择下图的软件选择中最小安装即可 如果要图像化界面，则需要点击软件选择，进去选择GNOME界面： 接下来安装教程完成所有的安装以及网络设置。 可以通过在终端键入ping baidu.com来检查网络是否配置成功（如下图即为成功）， 若ping失败,如果您的主机是通过网线连接，则需要检查虚拟机设置中网络适配器是否通过NAT方式连接，如果不是，则需要修改 修改完后返回虚拟机，在终端键入service network restart后再次ping进行测试。 如果不幸网路再次连接失败，需要点击下图的编辑-&gt;虚拟网络编辑器-&gt;更改设置界面后点击还原默认设置按照安装教程重新配置网络，当然不要忘记安装上图修改连接方式为NAT方式。 OpenFOAM安装OpenFOAM安装是根据官网教程安装(特别要注意从主机往虚拟机复制文件时要采用复制粘贴 的形式，直接拖动会造成文件损坏) 具体命令摘录出来为： 123456789101112131415161718192021//检查linux操作系统版本是否是3.10或者更高uname -r // 安装准备以及正式安装sudo yum -y updatecurl -fsSL https://get.docker.com/ | shsudo systemctl enable docker.servicesudo systemctl start dockersudo usermod -aG docker $(whoami)sudo sh -c &quot;wget http://dl.openfoam.org/docker/openfoam6-linux -O /usr/bin/openfoam6-linux&quot;sudo chmod 755 /usr/bin/openfoam6-linuxmkdir -p $HOME/OpenFOAM/$&#123;USER&#125;-6cd $HOME/OpenFOAM/$&#123;USER&#125;-6openfoam6-linux // 装完测试mkdir -p $FOAM_RUNcd $FOAM_RUNcp -r $FOAM_TUTORIALS/incompressible/simpleFoam/pitzDaily .cd pitzDailyblockMeshsimpleFoamparaFoam 预祝大家安装顺利！]]></content>
@@ -10,14 +18,6 @@
       <tags>
         <tag>OpenFOAMV6 CentOs7</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[OpenFOAM使用技巧总结]]></title>
-    <url>%2F2019%2F03%2F29%2FOpenFOAM%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B02019.01.06%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&lt;vector&gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&quot;Tuple2.H&quot; List&lt;Tuple2&lt;label, List&lt;scalar&gt;&gt;&gt; complexData(100); forAll(complexData, i) &#123; complexData[i].first() = rndGen.integer(0, Pstream::nProcs()-1); complexData[i].second().setSize(3); complexData[i].second()[0] = 1; complexData[i].second()[1] = 2; complexData[i].second()[2] = 3; &#125; 尽量避免循环。例如：如果需要定义一个分段函数，可以利用pos 和neg函数： 1234v = a, if x &lt; bv = c if x &gt; b// can be coded as volScalarField v = neg(x - b)*a + pos(x-b)*c; 多进程可以使用Sout或者Pout输出全部数据 从dictionary中读取vector和scalar不同：例如： 12vector U1(dict.lookup(&quot;U1&quot;));scalar r1(readScalar(dict.loocup(&quot;r1&quot;))); 对于label读取没有专门函数，可以以scalar类型读取后进行强制类型转换； 对于并计算:Foam::gSum(a)可以获取不同进程中场a的加和；Pstream::nProcs()获取并行的进程数；Pstream::myProcNo()获取当前的进程数 对于已经画好的网格需要在某个方向平移，或者放大缩小可以采用transformPoints操作： 12transformPoints -scale &quot;(1 1 0.5)&quot; //z方向网格点缩小0.5倍transformPoints -translate &quot;(0 0 0.5)&quot; //z方向整体向上平移0.5 返回某一网格的8个顶点坐标：出自cfd-online，亲测有效 123456789101112const faceList &amp; ff = mesh.faces();const pointField &amp; pp = mesh.points();forAll ( mesh.C(), celli)&#123; const cell &amp; cc = mesh.cells()[celli]; labelList pLabels(cc.labels(ff)); pointField pLocal(pLabels.size(), vector::zero); forAll (pLabels, pointi) pLobal[pointi] = pp[pLabels[pointi]];&#125; BiCGStab solver in OpenFOAM （收敛性更佳，适合rotating meshes）出自cfd-online， 求解器网站:地址, 注意：运行makeLib.sh(OpenFOAM-x.x.x/FoamFourierAnalysis/fftw-3.3.3/文件夹下configure加执行权限)。]]></content>
-      <categories>
-        <category>OpenFOAM</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[OpenFOAM按进程输出和输入文件]]></title>
@@ -32,17 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[OpenFOAM中Eular网格上的流场值插值到某一个点]]></title>
-    <url>%2F2018%2F08%2F23%2Fopenfoam%E4%B8%ADEular%E7%BD%91%E6%A0%BC%E4%B8%8A%E7%9A%84%E6%B5%81%E5%9C%BA%E5%80%BC%E6%8F%92%E5%80%BC%E5%88%B0%E6%9F%90%E4%B8%80%E4%B8%AA%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[openfoam中Eular网格上的流场值插值到某一个点在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数源文件可点击总共有六种插值方法cell, cellPoint, cellPointFace, cellPointWallModified, cellPatchConstrained 和pointMVC详细的插值方法介绍。以cellPoint为例介绍插值流体速度U到颗粒某一位置i：（1）只使用某一种插值方法： 1234567#include &quot;interpolationCellPoint.H&quot; interpolateCellpoint&lt;vector&gt; UInterpolate(U); forAll(particlePosition,i)&#123; label cellID = mesh.findCell(particleposition[i]); vector UInterp = UInterpolate.interpolate(particlePosition[i], cellID); &#125; 如果想使用其他方法修改头文件即可（2）若是对不同量采用不同的插值方法，则可以写成指针形式，从字典中调用对应方法的关键字即可： 12345678#include &quot;interpolation.H&quot; dictionary interpolationDict = U.mesh().schemesDict().subDict(&quot;interpolation&quot;); autoPtr&lt;interpolation&lt;vector&gt;&gt; UInterpolate = interpolation&lt;vector&gt;::New(interpolationDict,U); forAll(particlePosition,i)&#123; label cellID = mesh.findCell(particleposition[i]); vector UInterp = UInterpolate-&gt;interpolate(particlePosition[i], cellID); &#125; 具体的方法在算例文件夹下system/fvSchemes interpolation子文件中： 1234interpolation&#123; U cellPoint;&#125;]]></content>
-      <categories>
-        <category>OpenFOAM</category>
-      </categories>
-      <tags>
-        <tag>interpolated</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[ToLLy]]></title>
     <url>%2F2018%2F08%2F23%2Ftest%2F</url>
     <content type="text"><![CDATA[Just for testingHello world！]]></content>
@@ -51,6 +40,17 @@
       </categories>
       <tags>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[OpenFOAM中Eular网格上的流场值插值到某一个点]]></title>
+    <url>%2F2018%2F08%2F23%2Fopenfoam%E4%B8%ADEular%E7%BD%91%E6%A0%BC%E4%B8%8A%E7%9A%84%E6%B5%81%E5%9C%BA%E5%80%BC%E6%8F%92%E5%80%BC%E5%88%B0%E6%9F%90%E4%B8%80%E4%B8%AA%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[openfoam中Eular网格上的流场值插值到某一个点在模拟气固两相鼓泡床过程中需要将场量（流体速度，压力梯度）插值到相应颗粒位置，openfoam中自带了这种插值函数源文件可点击总共有六种插值方法cell, cellPoint, cellPointFace, cellPointWallModified, cellPatchConstrained 和pointMVC详细的插值方法介绍。以cellPoint为例介绍插值流体速度U到颗粒某一位置i：（1）只使用某一种插值方法： 1234567#include &quot;interpolationCellPoint.H&quot; interpolationCellPoint&lt;vector&gt; UInterpolate(U); forAll(particlePosition,i)&#123; //particlePosition为矢量数组包括颗粒坐标 label cellID = mesh.findCell(particleposition[i]); //找到该颗粒位于哪个网格内 vector UInterp = UInterpolate.interpolate(particlePosition[i], cellID); //进行插值 &#125; 如果想使用其他方法修改头文件即可（2）若是对不同量采用不同的插值方法，则可以写成指针形式，从字典中调用对应方法的关键字即可： 12345678#include &quot;interpolation.H&quot; dictionary interpolationDict = U.mesh().schemesDict().subDict(&quot;interpolation&quot;); autoPtr&lt;interpolation&lt;vector&gt;&gt; UInterpolate = interpolation&lt;vector&gt;::New(interpolationDict,U); forAll(particlePosition,i)&#123; label cellID = mesh.findCell(particleposition[i]); vector UInterp = UInterpolate-&gt;interpolate(particlePosition[i], cellID); &#125; 具体的方法在算例文件夹下system/fvSchemes interpolation子文件中： 1234interpolation&#123; U cellPoint;&#125;]]></content>
+      <categories>
+        <category>OpenFOAM</category>
+      </categories>
+      <tags>
+        <tag>interpolated</tag>
       </tags>
   </entry>
 </search>

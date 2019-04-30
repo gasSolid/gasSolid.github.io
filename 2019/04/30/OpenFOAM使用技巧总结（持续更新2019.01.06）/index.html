@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="file,parallel," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="OpenFOAM按进程输出和输入文件在某些前处理过程中需要按进程输入或者输出某些文件，例如输出网格中心高度大于0.2m的网格中心点： 1234567891011121314151617const volVectorField&amp;amp; C = mesh_.C();string nProc = std::to_string(Pstream::myProcNo());//不同编译器形式不同fileNa">
-<meta name="keywords" content="file,parallel">
+<meta name="description" content="OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tuple2.H&amp;quot;	List&amp;lt;Tuple2&amp;lt;label, List&amp;lt;scalar&amp;gt;&amp;gt;&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenFOAM按进程输出和输入文件">
-<meta property="og:url" content="http://yoursite.com/2019/03/28/OpenFOAM按进程输出和输入文件/index.html">
+<meta property="og:title" content="OpenFOAM使用技巧总结">
+<meta property="og:url" content="http://yoursite.com/2019/04/30/OpenFOAM使用技巧总结（持续更新2019.01.06）/index.html">
 <meta property="og:site_name" content="zhaopeng">
-<meta property="og:description" content="OpenFOAM按进程输出和输入文件在某些前处理过程中需要按进程输入或者输出某些文件，例如输出网格中心高度大于0.2m的网格中心点： 1234567891011121314151617const volVectorField&amp;amp; C = mesh_.C();string nProc = std::to_string(Pstream::myProcNo());//不同编译器形式不同fileNa">
+<meta property="og:description" content="OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tuple2.H&amp;quot;	List&amp;lt;Tuple2&amp;lt;label, List&amp;lt;scalar&amp;gt;&amp;gt;&amp;g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T14:07:53.844Z">
+<meta property="og:updated_time" content="2019-04-30T13:03:01.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OpenFOAM按进程输出和输入文件">
-<meta name="twitter:description" content="OpenFOAM按进程输出和输入文件在某些前处理过程中需要按进程输入或者输出某些文件，例如输出网格中心高度大于0.2m的网格中心点： 1234567891011121314151617const volVectorField&amp;amp; C = mesh_.C();string nProc = std::to_string(Pstream::myProcNo());//不同编译器形式不同fileNa">
+<meta name="twitter:title" content="OpenFOAM使用技巧总结">
+<meta name="twitter:description" content="OpenFOAM使用技巧总结（持续更新2019.01.06） 矢量数组可以新建为矢量列表形式，初始化方法为：List&amp;lt;vector&amp;gt; a = (n,vector::zero) 生成不同数据类型的链表并初始化： 12345678910#include&amp;quot;Tuple2.H&amp;quot;	List&amp;lt;Tuple2&amp;lt;label, List&amp;lt;scalar&amp;gt;&amp;gt;&amp;g">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/28/OpenFOAM按进程输出和输入文件/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/30/OpenFOAM使用技巧总结（持续更新2019.01.06）/"/>
 
 
 
 
 
-  <title>OpenFOAM按进程输出和输入文件 | zhaopeng</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>OpenFOAM使用技巧总结 | zhaopeng</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -273,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/OpenFOAM按进程输出和输入文件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/OpenFOAM使用技巧总结（持续更新2019.01.06）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhaopeng">
@@ -290,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">OpenFOAM按进程输出和输入文件</h1>
+          <h1 class="post-title" itemprop="name headline">OpenFOAM使用技巧总结</h1>
         
 
         <div class="post-meta">
@@ -302,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-28T00:00:00+08:00">
-                2019-03-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-30T00:00:00+08:00">
+                2019-04-30
               </time>
             
 
@@ -362,11 +361,40 @@
       
 
       
-        <h2 id="OpenFOAM按进程输出和输入文件"><a href="#OpenFOAM按进程输出和输入文件" class="headerlink" title="OpenFOAM按进程输出和输入文件"></a>OpenFOAM按进程输出和输入文件</h2><p>在某些前处理过程中需要按进程输入或者输出某些文件，<br>例如输出网格中心高度大于0.2m的网格中心点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const volVectorField&amp; C = mesh_.C();</span><br><span class="line">string nProc = std::to_string(Pstream::myProcNo());//不同编译器形式不同</span><br><span class="line">fileName gamma = &quot;gamma&quot; + &quot;-&quot; + nProc + &quot;.data&quot;;</span><br><span class="line">label count = 0;</span><br><span class="line">forAll(C,cellI)&#123;</span><br><span class="line">	if(C[cellI][2]&gt;0.2)&#123;</span><br><span class="line">		count++</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">FILE *fout = fopen(gamma.c_str(),&quot;w&quot;);</span><br><span class="line">fprintf(fout,&quot;nGamma %d\n&quot;,count);</span><br><span class="line">forAll(C,i)&#123;</span><br><span class="line"> if (C[i][2] &lt;0.2)&#123;</span><br><span class="line">  fprintf(fout,&quot;%f %f %f\n&quot;,C[i][0],C[i][1],C[i][2]);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">fclose(fout);</span><br></pre></td></tr></table></figure>
-<p>在另一个程序中输入这些网格中心，并找到相应的cellID：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">char tmp[128];</span><br><span class="line">int nGamma = 0;</span><br><span class="line">float a = 0.0;	//a,b,c必须被定义为float，不能用scalar；</span><br><span class="line">float b = 0.0;</span><br><span class="line">float c = 0.0;</span><br><span class="line">string nProc = std::to_string(Pstream::myProcNo());</span><br><span class="line">fileName gamma = &quot;gamma&quot; +&quot;-&quot; +nProc+&quot;.data&quot;;</span><br><span class="line">FILE* fin = fopen(gamma.c_str(),&quot;r&quot;);</span><br><span class="line">if(fin == NULL)&#123;</span><br><span class="line">	Info&lt;&lt; &quot;cannot find gamma file&quot; &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">fscanf(fin,&quot;%s %d&quot;,tmp,&amp;nGamma);</span><br><span class="line">vector listGamma;</span><br><span class="line">for(int k = 0;k&lt;nGamma;k++)&#123;</span><br><span class="line">	fscanf(fin,&quot;%f %f %f&quot;,&amp;a,&amp;b,&amp;c);</span><br><span class="line">	listGamma[0] = a ;</span><br><span class="line">	listGamma[1] = b ;</span><br><span class="line">	listGamma[2] = c ;</span><br><span class="line">	label cellID = mesh.findCell(listGamma);</span><br><span class="line">&#125;</span><br><span class="line">fclose(fin);</span><br></pre></td></tr></table></figure>
-<p>需要注意的是在使用FILE输入输出文件时，最好使用C++本身函数，与openfoam自带函数有歧义时，需要添加<code>std::</code>。</p>
+        <h2 id="OpenFOAM使用技巧总结（持续更新2019-01-06）"><a href="#OpenFOAM使用技巧总结（持续更新2019-01-06）" class="headerlink" title="OpenFOAM使用技巧总结（持续更新2019.01.06）"></a>OpenFOAM使用技巧总结（持续更新2019.01.06）</h2><ol>
+<li>矢量数组可以新建为矢量列表形式，初始化方法为：<br><code>List&lt;vector&gt; a = (n,vector::zero)</code></li>
+<li><p>生成不同数据类型的链表并初始化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include&quot;Tuple2.H&quot;</span><br><span class="line">	List&lt;Tuple2&lt;label, List&lt;scalar&gt;&gt;&gt; complexData(100);</span><br><span class="line">	forAll(complexData, i)</span><br><span class="line">        &#123;</span><br><span class="line">            complexData[i].first() = rndGen.integer(0, Pstream::nProcs()-1);</span><br><span class="line">            complexData[i].second().setSize(3);</span><br><span class="line">            complexData[i].second()[0] = 1;</span><br><span class="line">            complexData[i].second()[1] = 2;</span><br><span class="line">            complexData[i].second()[2] = 3;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>尽量避免循环。<br>例如：如果需要定义一个分段函数，可以利用<code>pos</code> 和<code>neg</code>函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">v = a, if x &lt; b</span><br><span class="line">v = c if x &gt; b</span><br><span class="line">// can be coded as </span><br><span class="line">volScalarField v = neg(x - b)*a + pos(x-b)*c;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多进程可以使用<code>Sout</code>或者<code>Pout</code>输出全部数据</p>
+</li>
+<li>从<code>dictionary</code>中读取<code>vector</code>和<code>scalar</code>不同：<br>例如：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector U1(dict.lookup(&quot;U1&quot;));</span><br><span class="line">scalar r1(readScalar(dict.loocup(&quot;r1&quot;)));</span><br></pre></td></tr></table></figure>
+<p>对于<code>label</code>读取没有专门函数，可以以<code>scalar</code>类型读取后进行强制类型转换；</p>
+<ol start="6">
+<li><p>对于并计算:<br><code>Foam::gSum(a)</code>可以获取不同进程中场a的加和；<br><code>Pstream::nProcs()</code>获取并行的进程数；<br><code>Pstream::myProcNo()</code>获取当前的进程数</p>
+</li>
+<li><p>对于已经画好的网格需要在某个方向平移，或者放大缩小可以采用<code>transformPoints</code>操作：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">transformPoints -scale &quot;(1 1 0.5)&quot; 		//z方向网格点缩小0.5倍</span><br><span class="line">transformPoints -translate  &quot;(0 0 0.5)&quot;	//z方向整体向上平移0.5</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>返回某一网格的8个顶点坐标：<a href="https://www.cfd-online.com/Forums/openfoam-programming-development/80038-cell-size-x-y-z.html" target="_blank" rel="noopener">出自cfd-online，亲测有效</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const faceList &amp; ff = mesh.faces();</span><br><span class="line">const pointField &amp; pp = mesh.points();</span><br><span class="line"></span><br><span class="line">forAll ( mesh.C(), celli)</span><br><span class="line">&#123;</span><br><span class="line">    const cell &amp; cc = mesh.cells()[celli];</span><br><span class="line">    labelList pLabels(cc.labels(ff));</span><br><span class="line">    pointField pLocal(pLabels.size(), vector::zero);</span><br><span class="line"></span><br><span class="line">    forAll (pLabels, pointi)</span><br><span class="line">           pLobal[pointi] = pp[pLabels[pointi]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li><p>BiCGStab solver in OpenFOAM （收敛性更佳，适合rotating meshes）<a href="https://www.cfd-online.com/Forums/openfoam-solving/152980-pbicg-vs-smoothsolver.html" target="_blank" rel="noopener">出自cfd-online</a>，</p>
+<p>求解器网站:<a href="https://github.com/unicfdlab/libcompressibleTools" target="_blank" rel="noopener">地址</a>, </p>
+<p>注意：运行makeLib.sh(OpenFOAM-x.x.x/FoamFourierAnalysis/fftw-3.3.3/文件夹下configure加执行权限)。</p>
+</li>
+<li><p>输出错误并跳出执行(多用于程序调试过程中)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FatalErrorIn(<span class="string">"main.cpp pressure is unregular"</span>)</span><br><span class="line">    &lt;&lt; <span class="built_in">abort</span>(FatalError);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -382,14 +410,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/file/" rel="tag"># file</a>
-          
-            <a href="/tags/parallel/" rel="tag"># parallel</a>
-          
-        </div>
-      
 
       
       
@@ -399,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/23/test/" rel="next" title="ToLLy">
-                <i class="fa fa-chevron-left"></i> ToLLy
+              <a href="/2019/04/18/虚拟机上在线安装OpenFOAM网络连接问题/" rel="next" title="虚拟机上在线安装OpenFOAMv6网络连接问题">
+                <i class="fa fa-chevron-left"></i> 虚拟机上在线安装OpenFOAMv6网络连接问题
               </a>
             
           </div>
@@ -408,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/18/虚拟机上在线安装OpenFOAM网络连接问题/" rel="prev" title="虚拟机上在线安装OpenFOAMv6网络连接问题">
-                虚拟机上在线安装OpenFOAMv6网络连接问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -543,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenFOAM按进程输出和输入文件"><span class="nav-number">1.</span> <span class="nav-text">OpenFOAM按进程输出和输入文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenFOAM使用技巧总结（持续更新2019-01-06）"><span class="nav-number">1.</span> <span class="nav-text">OpenFOAM使用技巧总结（持续更新2019.01.06）</span></a></li></ol></div>
             
 
           </div>
