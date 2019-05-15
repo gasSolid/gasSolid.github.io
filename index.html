@@ -374,8 +374,10 @@
 </li>
 <li>从<code>dictionary</code>中读取<code>vector</code>和<code>scalar</code>不同：<br>例如：</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector U1(dict.lookup(&quot;U1&quot;));</span><br><span class="line">scalar r1(readScalar(dict.loocup(&quot;r1&quot;)));</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector U1(dict.lookup("U1"));</span><br><span class="line">scalar r1(readScalar(dict.loocup("r1")));</span><br></pre></td></tr></table></figure>
 <p>对于<code>label</code>读取没有专门函数，可以以<code>scalar</code>类型读取后进行强制类型转换；</p>
+<p><code>dimensionedScalar</code>以及<code>dimenedsionVector</code>的初始化：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dimensionedVector gravityAccele("gravityAccele",dimensionSet(0,1,-2,0,0), vector(0,0,-9.8));</span><br><span class="line">dimensionedScslar gravityAccele("gravityAccele",dimensionSet(0,1,-2,0,0), -9.8);</span><br></pre></td></tr></table></figure>
 <ol start="6">
 <li><p>对于并计算:<br><code>Foam::gSum(a)</code>可以获取不同进程中场a的加和；<br><code>Pstream::nProcs()</code>获取并行的进程数；<br><code>Pstream::myProcNo()</code>获取当前的进程数</p>
 </li>
